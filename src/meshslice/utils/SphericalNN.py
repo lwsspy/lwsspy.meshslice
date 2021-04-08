@@ -5,10 +5,9 @@ Taken from ObsPy originally, but heavily modified.
 # External
 from __future__ import annotations
 from copy import deepcopy
-from typing import List, Union
+from typing import Union
 import numpy as np
 from scipy.spatial import cKDTree
-from obspy.core.inventory import Station
 
 # Internal
 from .constants import EARTH_RADIUS_KM, KM2DEG

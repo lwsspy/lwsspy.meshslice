@@ -4,6 +4,7 @@ dependencies:
   - numpy
   - matplotlib
   - cartopy
+  - pytest
   - pip
   - pip:
     - pyvista

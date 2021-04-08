@@ -4,9 +4,9 @@ Simple/small tool to plot and slice 3D meshes and create reproducible 2D slices.
 
 | | | |
 |-|-|-|
-|__Deployment__  | Value1 |
-|__Documentaion__| Value1 |
-|__Build Status__| Value2 |
+|__Deployment__  |  |
+|__Documentaion__| https://lsawade.github.io/meshslice |
+|__Build Status__|  |
 |__License__     | Value2 |
 
 
