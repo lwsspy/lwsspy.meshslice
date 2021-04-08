@@ -1,0 +1,6 @@
+name: meshslice
+dependencies:
+  - python=3.8
+  - numpy
+  - matplotlib
+  - pyvista
