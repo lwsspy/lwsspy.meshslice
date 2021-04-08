@@ -12,6 +12,7 @@ Welcome to meshslice's documentation!
 
    installation.rst
    usage.rst
+   API.rst
 
 
 
