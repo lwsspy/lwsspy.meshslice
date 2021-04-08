@@ -15,13 +15,13 @@ def test_plotting():
     plot_map()
 
 
-def test_plot_mesh():
+# def test_plot_mesh():
 
-    # Testfile
-    testfile = os.path.join(DATADIR, "test.vtu")
+#     # Testfile
+#     testfile = os.path.join(DATADIR, "test.vtu")
 
-    # Read Mesh
-    M = read_mesh(testfile)
+#     # Read Mesh
+#     M = read_mesh(testfile)
 
-    # Plot
-    MeshPlotSph(M, test=True)
+#     # Plot
+#     # MeshPlotSph(M, test=True)
