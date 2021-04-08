@@ -1,0 +1,498 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API &mdash; meshslice 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Usage" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> meshslice
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#main-functions">Main functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#utilities">Utilities</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">meshslice</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/API.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api">
+<h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="main-functions">
+<h2>Main functions<a class="headerlink" href="#main-functions" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="meshslice.meshslice_sph.MeshPlotSph">
+<em class="property">class </em><code class="sig-prename descclassname">meshslice.meshslice_sph.</code><code class="sig-name descname">MeshPlotSph</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">lat</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>float<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">lon</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>float<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">rotangle</span><span class="p">:</span> <span class="n">float</span> <span class="o">=</span> <span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">depth</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>float<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">rotlat</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>float<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">rotlon</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>float<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">get_mean</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em>, <em class="sig-param"><span class="n">opacity</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">meshname</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'RF'</span></em>, <em class="sig-param"><span class="n">cmapname</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'seismic'</span></em>, <em class="sig-param"><span class="n">cmapsym</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em>, <em class="sig-param"><span class="n">clim</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>List<span class="p">[</span>float<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">debug</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em>, <em class="sig-param"><span class="n">outputdir</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'.'</span></em>, <em class="sig-param"><span class="n">use_ipyvtk</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">figures_only</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">test</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">fmt</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'pdf'</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meshslice/meshslice_sph.html#MeshPlotSph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meshslice.meshslice_sph.MeshPlotSph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="meshslice.read_mesh.read_mesh">
+<code class="sig-prename descclassname">meshslice.read_mesh.</code><code class="sig-name descname">read_mesh</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">filename</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meshslice/read_mesh.html#read_mesh"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meshslice.read_mesh.read_mesh" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="utilities">
+<h2>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="meshslice.utils.cart2geo.cart2geo">
+<code class="sig-prename descclassname">meshslice.utils.cart2geo.</code><code class="sig-name descname">cart2geo</code><span class="sig-paren">(</span><em class="sig-param">x: float</em>, <em class="sig-param">y: float</em>, <em class="sig-param">z: float) -&gt; (&lt;class 'float'&gt;</em>, <em class="sig-param">&lt;class 'float'&gt;</em>, <em class="sig-param">&lt;class 'float'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meshslice/utils/cart2geo.html#cart2geo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meshslice.utils.cart2geo.cart2geo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes Cartesian coordinates from geographical coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">float or numpy.ndarray or list</span></dt><dd><p>Radius</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">float or numpy.ndarray or list</span></dt><dd><p>Latitude (-90, 90)</p>
+</dd>
+<dt><strong>z</strong><span class="classifier">float or numpy.ndarray or list</span></dt><dd><p>Longitude (-180, 180)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>float or np.ndarray or list, float or np.ndarray or list, float or np.ndarray or list</dt><dd><p>(r, theta, phi)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="meshslice.utils.cart2pol.cart2pol">
+<code class="sig-prename descclassname">meshslice.utils.cart2pol.</code><code class="sig-name descname">cart2pol</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meshslice/utils/cart2pol.html#cart2pol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meshslice.utils.cart2pol.cart2pol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="meshslice.utils.cart2sph.cart2sph">
+<code class="sig-prename descclassname">meshslice.utils.cart2sph.</code><code class="sig-name descname">cart2sph</code><span class="sig-paren">(</span><em class="sig-param">x: float</em>, <em class="sig-param">y: float</em>, <em class="sig-param">z: float) -&gt; (&lt;class 'float'&gt;</em>, <em class="sig-param">&lt;class 'float'&gt;</em>, <em class="sig-param">&lt;class 'float'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meshslice/utils/cart2sph.html#cart2sph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meshslice.utils.cart2sph.cart2sph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes Cartesian coordinates from geographical coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">float or numpy.ndarray or list</span></dt><dd><p>Radius</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">float or numpy.ndarray or list</span></dt><dd><p>Latitude (-90, 90)</p>
+</dd>
+<dt><strong>z</strong><span class="classifier">float or numpy.ndarray or list</span></dt><dd><p>Longitude (-180, 180)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>float or np.ndarray or list, float or np.ndarray or list, float or np.ndarray or list</dt><dd><p>(r, theta, phi)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="meshslice.utils.geo2cart.geo2cart">
+<code class="sig-prename descclassname">meshslice.utils.geo2cart.</code><code class="sig-name descname">geo2cart</code><span class="sig-paren">(</span><em class="sig-param">r: float</em>, <em class="sig-param">theta: float</em>, <em class="sig-param">phi: float) -&gt; (&lt;class 'float'&gt;</em>, <em class="sig-param">&lt;class 'float'&gt;</em>, <em class="sig-param">&lt;class 'float'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meshslice/utils/geo2cart.html#geo2cart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meshslice.utils.geo2cart.geo2cart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes Cartesian coordinates from geographical coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>r</strong><span class="classifier">float or numpy.ndarray or list</span></dt><dd><p>Radius</p>
+</dd>
+<dt><strong>theta</strong><span class="classifier">float or numpy.ndarray or list</span></dt><dd><p>Latitude (-90, 90)</p>
+</dd>
+<dt><strong>phi</strong><span class="classifier">float or numpy.ndarray or list</span></dt><dd><p>Longitude (-180, 180)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>float or np.ndarray or list, float or np.ndarray or list, float or np.ndarray or list</dt><dd><p>(x, y, z)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="meshslice.utils.map_axes.map_axes">
+<code class="sig-prename descclassname">meshslice.utils.map_axes.</code><code class="sig-name descname">map_axes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">proj</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'moll'</span></em>, <em class="sig-param"><span class="n">central_longitude</span><span class="o">=</span><span class="default_value">0.0</span></em><span class="sig-paren">)</span> &#x2192; matplotlib.axes._axes.Axes<a class="reference internal" href="_modules/meshslice/utils/map_axes.html#map_axes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meshslice.utils.map_axes.map_axes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates matplotlib axes with map projection taken from cartopy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>proj: str, optional</strong></dt><dd><p>shortname for mapprojection
+‘moll’, ‘carr’, by default “moll”</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>plt.Axes</dt><dd><p>Matplotlib axes with projection</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>ValueError</dt><dd><p>If non supported shortname for axes is given</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Lucas Sawade (<a class="reference external" href="mailto:lsawade&#37;&#52;&#48;princeton&#46;edu">lsawade<span>&#64;</span>princeton<span>&#46;</span>edu</a>)</p>
+</dd>
+<dt class="field-even">Last Modified</dt>
+<dd class="field-even"><p>2021.01.13 20.30</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">lwsspy</span> <span class="kn">import</span> <span class="n">map_axes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">map_axes</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="meshslice.utils.plot_map.plot_map">
+<code class="sig-prename descclassname">meshslice.utils.plot_map.</code><code class="sig-name descname">plot_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fill</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">zorder</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">labelstopright</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em>, <em class="sig-param"><span class="n">labelsbottomleft</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em>, <em class="sig-param"><span class="n">borders</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em>, <em class="sig-param"><span class="n">rivers</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">lakes</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meshslice/utils/plot_map.html#plot_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meshslice.utils.plot_map.plot_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots map into existing axes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>fill</strong><span class="classifier">bool, optional</span></dt><dd><p>fills the continents in light gray, by default True</p>
+</dd>
+<dt><strong>zorder</strong><span class="classifier">int, optional</span></dt><dd><p>zorder of the map, by default -10</p>
+</dd>
+<dt><strong>projection</strong><span class="classifier">cartopy.crs.projection, optional</span></dt><dd><p>projection to be used for the map.</p>
+</dd>
+<dt><strong>labelstopright</strong><span class="classifier">bool, optional</span></dt><dd><p>flag to turn on or off the ticks</p>
+</dd>
+<dt><strong>labelsbottomleft</strong><span class="classifier">bool, optional</span></dt><dd><p>flag to turn on or off the ticks</p>
+</dd>
+<dt><strong>borders</strong><span class="classifier">bool</span></dt><dd><p>plot borders. Default True</p>
+</dd>
+<dt><strong>rivers</strong><span class="classifier">bool</span></dt><dd><p>plot rivers. Default False</p>
+</dd>
+<dt><strong>lakes</strong><span class="classifier">bool</span></dt><dd><p>plot lakes. Default True</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>matplotlib.pyplot.Axes</dt><dd><p>Axes in which the map was plotted</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Author</dt>
+<dd class="field-odd"><p>Lucas Sawade (<a class="reference external" href="mailto:lsawade&#37;&#52;&#48;princeton&#46;edu">lsawade<span>&#64;</span>princeton<span>&#46;</span>edu</a>)</p>
+</dd>
+<dt class="field-even">Last Modified</dt>
+<dd class="field-even"><p>2020.01.07 16.30</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="meshslice.utils.pol2cart.pol2cart">
+<code class="sig-prename descclassname">meshslice.utils.pol2cart.</code><code class="sig-name descname">pol2cart</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rho</span></em>, <em class="sig-param"><span class="n">phi</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meshslice/utils/pol2cart.html#pol2cart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meshslice.utils.pol2cart.pol2cart" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="meshslice.utils.rotation_matrix.rotation_matrix">
+<code class="sig-prename descclassname">meshslice.utils.rotation_matrix.</code><code class="sig-name descname">rotation_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">axis</span></em>, <em class="sig-param"><span class="n">theta</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meshslice/utils/rotation_matrix.html#rotation_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meshslice.utils.rotation_matrix.rotation_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the rotation matrix associated with counterclockwise rotation about
+the given axis by theta radians.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="meshslice.utils.sph2cart.sph2cart">
+<code class="sig-prename descclassname">meshslice.utils.sph2cart.</code><code class="sig-name descname">sph2cart</code><span class="sig-paren">(</span><em class="sig-param">r: float</em>, <em class="sig-param">theta: float</em>, <em class="sig-param">phi: float) -&gt; (&lt;class 'float'&gt;</em>, <em class="sig-param">&lt;class 'float'&gt;</em>, <em class="sig-param">&lt;class 'float'&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meshslice/utils/sph2cart.html#sph2cart"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meshslice.utils.sph2cart.sph2cart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes Cartesian coordinates from geographical coordinates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>r</strong><span class="classifier">float or numpy.ndarray or list</span></dt><dd><p>Radius</p>
+</dd>
+<dt><strong>theta</strong><span class="classifier">float or numpy.ndarray or list</span></dt><dd><p>Theta (0, pi)</p>
+</dd>
+<dt><strong>phi</strong><span class="classifier">float or numpy.ndarray or list</span></dt><dd><p>phi (0, 2*pi)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>float or np.ndarray or list, float or np.ndarray or list, float or np.ndarray or list</dt><dd><p>(x, y, z)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="meshslice.utils.SphericalNN.SphericalNN">
+<em class="property">class </em><code class="sig-prename descclassname">meshslice.utils.SphericalNN.</code><code class="sig-name descname">SphericalNN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lat</span></em>, <em class="sig-param"><span class="n">lon</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meshslice/utils/SphericalNN.html#SphericalNN"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meshslice.utils.SphericalNN.SphericalNN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Spherical nearest neighbour queries using scipy’s fast kd-tree
+implementation.</p>
+<p class="rubric">Notes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Authors</dt>
+<dd class="field-odd"><p>Lucas Sawade (<a class="reference external" href="mailto:lsawade&#37;&#52;&#48;princeton&#46;edu">lsawade<span>&#64;</span>princeton<span>&#46;</span>edu</a>)</p>
+</dd>
+<dt class="field-even">Last Modified</dt>
+<dd class="field-even"><p>2020.01.07 19.00</p>
+</dd>
+<dt class="field-odd">Attributes</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>data</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>cartesian point data array [x,y,z]</p>
+</dd>
+<dt><strong>kd_tree</strong><span class="classifier">scipy.spatial.cKDTree</span></dt><dd><p>a KDTree used to query data</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 85%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>query(qlat, qlon)</strong></p></td>
+<td><p>Query a set of latitudes and longitudes</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>query_pairs(maximum_distance)</strong></p></td>
+<td><p>Find pairs of points that are within a certain distance of each other</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>interp(data, qlat, qlon)</strong></p></td>
+<td><p>Use the kdtree to interpolate data corresponding to the points of the Kdtree onto a new set of points using nearest neighbor interpolation or weighted nearest neighbor interpolation (default).</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="py function">
+<dt id="meshslice.utils.updaterc.updaterc">
+<code class="sig-prename descclassname">meshslice.utils.updaterc.</code><code class="sig-name descname">updaterc</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rebuild</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meshslice/utils/updaterc.html#updaterc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meshslice.utils.updaterc.updaterc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the rcParams to something generic that looks ok good out of
+the box.</p>
+<p>Args:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>rebuild (bool):</dt><dd><p>Rebuilds fontcache incase it needs it.</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Last modified: Lucas Sawade, 2020.09.15 01.00 (<a class="reference external" href="mailto:lsawade&#37;&#52;&#48;princeton&#46;edu">lsawade<span>&#64;</span>princeton<span>&#46;</span>edu</a>)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="meshslice.utils.visibility_callback.SetVisibilityCallback">
+<code class="sig-prename descclassname">meshslice.utils.visibility_callback.</code><code class="sig-name descname">SetVisibilityCallback</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">actors</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meshslice/utils/visibility_callback.html#SetVisibilityCallback"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meshslice.utils.visibility_callback.SetVisibilityCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper callback to keep a reference to the actor being modified.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="meshslice.utils.vtksphere.generate_sphere">
+<code class="sig-prename descclassname">meshslice.utils.vtksphere.</code><code class="sig-name descname">generate_sphere</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">radius</span></em>, <em class="sig-param"><span class="n">origin</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/meshslice/utils/vtksphere.html#generate_sphere"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#meshslice.utils.vtksphere.generate_sphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a _vtk.vtkSphere.</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="usage.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Lucas Sawade
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

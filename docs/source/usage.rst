@@ -1,7 +1,0 @@
-Usage
------
-
-
-.. code-block:: python
-
-    

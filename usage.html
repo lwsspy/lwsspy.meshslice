@@ -1,0 +1,265 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Usage &mdash; meshslice 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API" href="API.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> meshslice
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#read-and-plot-spherical-plot-in-window-to-explore">Read and Plot Spherical Plot in window to explore</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reproducible-slices-through-a-3d-volume">Reproducible slices through a 3D volume</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="API.html">API</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">meshslice</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Usage</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/usage.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
+<p>Below different usage examples:</p>
+<div class="section" id="read-and-plot-spherical-plot-in-window-to-explore">
+<h2>Read and Plot Spherical Plot in window to explore<a class="headerlink" href="#read-and-plot-spherical-plot-in-window-to-explore" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">meshslice</span> <span class="kn">import</span> <span class="n">read_mesh</span><span class="p">,</span> <span class="n">MeshPlotSph</span>
+
+<span class="c1"># Read mesh</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">read_mesh</span><span class="p">(</span><span class="s2">&quot;tests/data/test.vtu&quot;</span><span class="p">)</span>
+
+<span class="c1"># Open explorer</span>
+<span class="n">MeshPlotSph</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/explorerwindow.png" src="_images/explorerwindow.png" />
+</div>
+<div class="section" id="reproducible-slices-through-a-3d-volume">
+<h2>Reproducible slices through a 3D volume<a class="headerlink" href="#reproducible-slices-through-a-3d-volume" title="Permalink to this headline">¶</a></h2>
+<p>Compare slices of two datatypes. Here, <code class="docutils literal notranslate"><span class="pre">illumination</span></code> and <code class="docutils literal notranslate"><span class="pre">RF</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">meshslice</span> <span class="kn">import</span> <span class="n">read_mesh</span><span class="p">,</span> <span class="n">MeshPlotSph</span>
+
+<span class="c1"># Read mesh</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">read_mesh</span><span class="p">(</span><span class="s2">&quot;tests/data/test.vtu&quot;</span><span class="p">)</span>
+
+<span class="n">locations</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">lat</span><span class="o">=</span><span class="mf">42.8</span><span class="p">,</span>
+    <span class="n">lon</span><span class="o">=-</span><span class="mf">119.0</span><span class="p">,</span>
+    <span class="n">rotangle</span><span class="o">=</span><span class="mf">45.0</span><span class="p">,</span>
+    <span class="n">depth</span><span class="o">=</span><span class="mi">660</span>
+<span class="p">)</span>
+
+<span class="n">illum_cdict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">meshname</span><span class="o">=</span><span class="s1">&#39;illumination&#39;</span><span class="p">,</span>
+    <span class="n">cmapname</span><span class="o">=</span><span class="s1">&#39;magma&#39;</span><span class="p">,</span>
+    <span class="n">clim</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1200</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">RF_cdict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">meshname</span><span class="o">=</span><span class="s1">&#39;RF&#39;</span><span class="p">,</span>
+    <span class="n">cmapname</span><span class="o">=</span><span class="s1">&#39;seismic&#39;</span><span class="p">,</span>
+    <span class="n">clim</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">MeshPlotSph</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="o">**</span><span class="n">locations</span><span class="p">,</span> <span class="o">**</span><span class="n">illum_cdict</span><span class="p">,</span> <span class="n">figures_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;svg&#39;</span><span class="p">)</span>
+<span class="n">MeshPlotSph</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="o">**</span><span class="n">locations</span><span class="p">,</span> <span class="o">**</span><span class="n">RF_cdict</span><span class="p">,</span> <span class="n">figures_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;svg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/depthslice660_RF.svg" src="_images/depthslice660_RF.svg" /><img alt="_images/depthslice660_illumination.svg" src="_images/depthslice660_illumination.svg" /><img alt="_images/slice_Y_lat132_lon61_N45_RF.svg" src="_images/slice_Y_lat132_lon61_N45_RF.svg" /><img alt="_images/slice_Y_lat132_lon61_N45_illumination.svg" src="_images/slice_Y_lat132_lon61_N45_illumination.svg" /><img alt="_images/slice_Z_lat132_lon61_N135_RF.svg" src="_images/slice_Z_lat132_lon61_N135_RF.svg" /><img alt="_images/slice_Z_lat132_lon61_N135_illumination.svg" src="_images/slice_Z_lat132_lon61_N135_illumination.svg" /></div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="API.html" class="btn btn-neutral float-right" title="API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Lucas Sawade
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
