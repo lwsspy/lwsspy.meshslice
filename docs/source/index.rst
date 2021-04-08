@@ -10,6 +10,9 @@ Welcome to meshslice's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   installation.rst
+   usage.rst
+
 
 
 Indices and tables

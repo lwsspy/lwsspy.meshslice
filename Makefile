@@ -7,7 +7,7 @@ SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = docs/source
 BUILDDIR      = docs/build
-GH_PAGES_SOURCES = docs src/matpy tests setup.py setup.cfg .readthedocs.yml environment.yml Makefile
+GH_PAGES_SOURCES = docs src/meshslice setup.py setup.cfg 
 
 # Put it first so that "make" without argument is like "make help".
 help:
@@ -22,14 +22,14 @@ help:
 
 gh-pages:
 	git checkout gh-pages
-	rm -rf build _sources _static _modules chapters
-	git checkout master $(GH_PAGES_SOURCES) .gitignore
+	rm -rf build _sources _static _modules
+	git checkout main $(GH_PAGES_SOURCES) .gitignore
 	git reset HEAD
 	make html
 	mv -fv docs/build/html/* ./
 	rm -rf $(GH_PAGES_SOURCES) build
 	git add -A
-	git commit -a -v -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`" && git push origin gh-pages ; git checkout master
+	git commit -a -v -m "Generated gh-pages for `git log main -1 --pretty=short --abbrev-commit`" && git push origin gh-pages ; git checkout main
 
 dist:
 	python3 -m pip install --user --upgrade setuptools wheel
