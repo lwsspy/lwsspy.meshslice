@@ -1,3 +1,5 @@
+import numpy as np
+
 
 def rotation_matrix(axis, theta):
     """

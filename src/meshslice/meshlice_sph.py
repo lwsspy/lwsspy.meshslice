@@ -1,5 +1,14 @@
 
 # External
+import os
+from typing import Optional, List
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.tri import Triangulation, LinearTriInterpolator
+from copy import deepcopy
+import pyvista as pv
+from pyvista import _vtk
+from pyvista.utilities.helpers import generate_plane
 
 
 # Internal imports
@@ -7,7 +16,15 @@ from .utils.rotation_matrix import rotation_matrix
 from .utils.visibility_callback import SetVisibilityCallback
 from .utils.vtksphere import generate_sphere
 from .utils.updaterc import updaterc
-
+from .utils.geo2cart import geo2cart
+from .utils.cart2geo import cart2geo
+from .utils.pol2cart import pol2cart
+from .utils.cart2pol import cart2pol
+from .utils.map_axes import map_axes
+from .utils.plot_map import plot_map
+from .utils.SphericalNN import SphericalNN
+from . import EARTH_RADIUS_KM
+from . import DEG2KM
 
 
 class MeshPlotSph():
@@ -28,7 +45,8 @@ class MeshPlotSph():
                  debug: bool = True,
                  outputdir: str = '.',
                  use_ipyvtk: bool = False,
-                 figures_only: bool = False):
+                 figures_only: bool = False,
+                 test: bool = False):
 
         # Init state
         self.not_init_state = False
@@ -75,14 +93,14 @@ class MeshPlotSph():
             self.latitude, self.longitude = lat, lon
 
             # Convert to vector
-            self.initpos = lpy.geo2cart(1.0, self.latitude, self.longitude)
+            self.initpos = geo2cart(1.0, self.latitude, self.longitude)
 
         else:
             # Get mean vector
             self.initpos = np.mean(self.mesh.points, axis=0)
 
             # Get convert to geo location.
-            _, self.latitude, self.longitude = lpy.cart2geo(*self.initpos)
+            _, self.latitude, self.longitude = cart2geo(*self.initpos)
 
         # Set center of the slice to be the init
         self.center = self.initpos
@@ -289,7 +307,7 @@ class MeshPlotSph():
             pointb=(.975, .9),
             event_type='always')
 
-        # Actually plot bounds
+        # Plot bounds
         self.p.subplot(0)
         bounds = self.p.show_bounds(bounds=mesh.bounds, location='back')
 
@@ -410,9 +428,13 @@ class MeshPlotSph():
         # Do general update
         self.p.update()
 
+        if test:
+            self.p.close()
+            return
+
         # Finally show the damn thing
-        if figures_only:
-            self.figures_only = figures_only
+        self.figures_only = figures_only
+        if self.figures_only:
             self.depth_slice_to_map(1.0)
             self.plot_y_slice(1.0)
             self.plot_z_slice(1.0)
@@ -430,21 +452,21 @@ class MeshPlotSph():
         # Use the grid as the data we desire to cut
         self.Yslice['alg'].SetInputDataObject(self.mesh)
         self.Yslice['alg'].GenerateTrianglesOff()
-        self.Yslice['slc'] = pyvista.wrap(self.Yslice['alg'].GetOutput())
+        self.Yslice['slc'] = pv.wrap(self.Yslice['alg'].GetOutput())
         self.p.plane_sliced_meshes.append(self.Yslice['slc'])
 
         self.Zslice['alg'] = _vtk.vtkCutter()  # Construct the cutter object
         # Use the grid as the data we desire to cut
         self.Zslice['alg'].SetInputDataObject(self.mesh)
         self.Zslice['alg'].GenerateTrianglesOff()
-        self.Zslice['slc'] = pyvista.wrap(self.Zslice['alg'].GetOutput())
+        self.Zslice['slc'] = pv.wrap(self.Zslice['alg'].GetOutput())
         self.p.plane_sliced_meshes.append(self.Zslice['slc'])
 
         self.Rslice['alg'] = _vtk.vtkCutter()  # Construct the cutter object
         # Use the grid as the data we desire to cut
         self.Rslice['alg'].SetInputDataObject(self.mesh)
         self.Rslice['alg'].GenerateTrianglesOff()
-        self.Rslice['slc'] = pyvista.wrap(self.Rslice['alg'].GetOutput())
+        self.Rslice['slc'] = pv.wrap(self.Rslice['alg'].GetOutput())
         self.p.plane_sliced_meshes.append(self.Rslice['slc'])
 
     def add_slice_actors(self):
@@ -633,7 +655,7 @@ class MeshPlotSph():
         self.latitude = latitude
 
         # Compute the center
-        self.center = lpy.geo2cart(1.0, self.latitude, self.longitude)
+        self.center = geo2cart(1.0, self.latitude, self.longitude)
 
         # Compute new rotation matrix using the latitude
         self.rotmat_lat = rotation_matrix(
@@ -652,7 +674,7 @@ class MeshPlotSph():
         self.longitude = longitude
 
         # Compute center
-        self.center = lpy.geo2cart(1.0, self.latitude, self.longitude)
+        self.center = geo2cart(1.0, self.latitude, self.longitude)
 
         # Compute rotation matrix
         self.rotmat_lon = rotation_matrix(
@@ -727,7 +749,7 @@ class MeshPlotSph():
         #  Get starting values
         self.clim = self.initclim
         self.center = self.initpos
-        _, self.latitude, self.longitude = lpy.cart2geo(*self.initpos)
+        _, self.latitude, self.longitude = cart2geo(*self.initpos)
 
         # Reset colorbar boundaries
         self.set_colorslider_bounds()
@@ -754,7 +776,7 @@ class MeshPlotSph():
         slctemp = self.Rslice["slc"].copy(deep=True)
 
         # Get the geographical points
-        _, lat, lon = lpy.cart2geo(
+        _, lat, lon = cart2geo(
             slctemp.points[:, 0], slctemp.points[:, 1], slctemp.points[:, 2])
 
         # Get bounds
@@ -765,7 +787,7 @@ class MeshPlotSph():
         data = deepcopy(slctemp[self.meshname])
 
         # Set up interpolation
-        snn = lpy.SphericalNN(lat, lon)
+        snn = SphericalNN(lat, lon)
         res = 0.25
         llon, llat = np.meshgrid(
             np.arange(lonmin, lonmax+res, res),
@@ -778,8 +800,8 @@ class MeshPlotSph():
 
         # Create Map
         fig = plt.figure()
-        ax = lpy.map_axes(proj='carr')
-        lpy.plot_map(zorder=1, borders=False, fill=False)
+        ax = map_axes(proj='carr')
+        plot_map(zorder=1, borders=False, fill=False)
         ax.set_xlim(lonmin, lonmax)
         ax.set_ylim(latmin, latmax)
 
@@ -787,7 +809,7 @@ class MeshPlotSph():
         plt.imshow(d[::-1, :], extent=[lonmin, lonmax, latmin,
                                        latmax], cmap=self.cmapname,
                    zorder=-1, vmin=self.clim[0], vmax=self.clim[1])
-        cbar = lpy.nice_colorbar(orientation='horizontal', aspect=40)
+        cbar = plt.colorbar(orientation='horizontal', aspect=40)
         label = 'Hitcounts' if self.meshname == 'illumination' else "Amplitude"
         cbar.set_label(label)
         plt.title(f"Z = {int(self.depth):d} km")
@@ -851,7 +873,7 @@ class MeshPlotSph():
 
         if self.debug:
             print("   Triangulate")
-        mesh = pc.delaunay_2d(alpha=0.5*1.5*lpy.DEG2KM)
+        mesh = pc.delaunay_2d(alpha=0.5*1.5*DEG2KM)
         mesh[self.meshname] = slctemp[self.meshname]
 
         # Get triangles from delauney triangulation to be
@@ -859,7 +881,7 @@ class MeshPlotSph():
         if self.debug:
             print("   Reshape Triangles")
         xy = np.array(mesh.points[:, 0:2])
-        r, t = lpy.cart2pol(xy[:, 0], xy[:, 1])
+        r, t = cart2pol(xy[:, 0], xy[:, 1])
         findlimt = t + 4 * np.pi
         mint = np.min(findlimt) - 4 * np.pi
         maxt = np.max(findlimt) - 4 * np.pi
@@ -873,8 +895,8 @@ class MeshPlotSph():
             maxt = 11.25
 
         # Set up intterpolation values
-        dmin = np.min(lpy.EARTH_RADIUS_KM - r)
-        dmax = np.max(lpy.EARTH_RADIUS_KM - r)
+        dmin = np.min(EARTH_RADIUS_KM - r)
+        dmax = np.max(EARTH_RADIUS_KM - r)
         dsamp = np.linspace(dmin, dmax, 1000)
         tsamp = np.linspace(mint, maxt, 1000)
         tt, dd = np.meshgrid(tsamp, dsamp)
@@ -887,10 +909,10 @@ class MeshPlotSph():
 
         # linear interpolation
         fz = LinearTriInterpolator(triObj, mesh[self.meshname])
-        Z = fz(tt, lpy.EARTH_RADIUS_KM - dd)
+        Z = fz(tt, EARTH_RADIUS_KM - dd)
 
         # Get aspect of the figure
-        aspect = ((maxt - mint)*180/np.pi*lpy.DEG2KM) / (dmax - dmin)
+        aspect = ((maxt - mint)*180/np.pi*DEG2KM) / (dmax - dmin)
         height = 4.0
         width = height * aspect
 
@@ -902,7 +924,7 @@ class MeshPlotSph():
 
         plt.imshow(
             Z,
-            extent=[mint*180/np.pi*lpy.DEG2KM, maxt*180/np.pi*lpy.DEG2KM,
+            extent=[mint*180/np.pi*DEG2KM, maxt*180/np.pi*DEG2KM,
                     dmax, dmin],
             cmap=self.cmapname, vmin=self.clim[0], vmax=self.clim[1],
             rasterized=True)

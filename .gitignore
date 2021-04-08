@@ -1,3 +1,8 @@
 docs/build
 .vscode
 docs/source/_build
+build
+dist
+*.egg-info
+__pycache__
+*.pdf

@@ -1,3 +1,4 @@
+import vtkmodules
 
 
 def generate_sphere(radius, origin):
