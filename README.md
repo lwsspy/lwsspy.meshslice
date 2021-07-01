@@ -13,14 +13,14 @@ Simple/small tool to plot and slice 3D meshes and create reproducible 2D slices.
 ## Quick-Install
 
 ```bash
-pip install meshslice
+pip install lwsspy.meshslice
 ```
 
 
 ## Quick-Usage
 
 ```python
-from meshlice import MeshPlotSph, read_mesh
+from lwsspy.meshlice import MeshPlotSph, read_mesh
 M = read_mesh(<yourmeshfile>)
 Meshplot(M)
 ```
