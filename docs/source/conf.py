@@ -17,12 +17,12 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'meshslice'
+project = 'lwsspy.meshslice'
 copyright = '2021, Lucas Sawade'
 author = 'Lucas Sawade'
 
 # The full version, including alpha/beta/rc tags
-release = '0.0.1'
+release = '0.0.5'
 
 
 # -- General configuration ---------------------------------------------------
